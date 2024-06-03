@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./weather.css">
+    <title>Weather</title>
+</head>
+<body>
+  
+<div class="mainDiv">
+
+    <div class="headerDiv">
+        <input type="text" placeholder="Type city" autocomplete="off" id="city">
+        <ul id="sugesstion" style="display: none;"></ul>
+        <input type="datetime-local"  id="date">
+        <div>
+            <div class="categories" onclick="selectCategory()">
+                <p class="selectedCategory">Purpose</p>
+                <div id="icon">&#9660;</div>
+            </div>
+            <div class="porpuse">
+                <ul>
+                    <li onclick="chooseCategory(this)">Swiming</li>
+                    <li onclick="chooseCategory(this)">Camping</li>
+                    <li onclick="chooseCategory(this)">Hiking</li>
+                    <li onclick="chooseCategory(this)">Skiing</li>
+                </ul>
+            </div>
+        </div>
+        
+        <button onclick="getWeather()">
+            <!-- icon -->
+            <div>&#128269;</div>
+        </button>
+    </div>
+
+    <div id="content" style="display: none;">
+
+        <div class="currentWeather">
+
+            <div class="weather">
+                <p id="cheesenDate"></p>
+                <img class="img">
+                <h1 class="temp"></h1>
+                <h2 class="city1"></h2>
+            </div>
+            <div class="conditions">
+                <div style="width: 50%;">
+                    <img src="./weather_img/himidity.png">
+                    <h3 class="humidity"></h3>
+                </div>
+                <div style="width: 50%;">
+                    <img src="./weather_img/wind.png">
+                    <h3 class="wind"></h3>
+                </div>
+            </div>
+
+        </div>
+
+        <div style="display: block;">
+            <p style="display: block;" class="para"></p>
+        </div>
+        <div id="suge" style="display: flex; gap: 50px;">
+
+            
+
+
+        </div>
+        
+    
+</div>
+
+
+
+<script src="./weather.js"></script>
+</body>
+</html>

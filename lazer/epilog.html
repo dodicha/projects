@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./epilog.css">
+    <title>Epilog</title>
+</head>
+<body>
+    <header>
+        <div class="oficial-epilog" id="j">
+            <p style="display: block;">
+                ეპილოგი ლაზერული დანადგარების მწარმოებელი ერთ-ერთი უმსხვილესი 
+                კომპანიაა მსოფლიოში. მეტი ინფორმაციისთვის ეწვიეთ ოფიციალურ ვებ გვერდს: 
+                <a style="text-decoration: underline;" href="https://www.epiloglaser.com/company/about-epilog-laser/" target="_blank"><strong>EPILOG</strong></a>
+            </p>
+            <p>
+                ეს პროექტი კი შექმნილია სარეკლამო კომპანიებში ამ ტიპის დანადგარებზე მომუშავე ოპერატორებისთვის           
+            </p>
+        </div>
+    </header>
+    <p class="choose">აირჩიეთ დანადგარი და მასალა რომელზეც გსურთ იმუშაოთ</p>
+    <div class="main">
+        <div class="machines">
+            <h2>Devices</h2>
+            <button id="edge" onclick="machineClick(this), main()">Fusion Edge</button>
+            <button id="m2" onclick="machineClick(this), main()">Fusion M2</button>
+            <button id="maker" onclick="machineClick(this), main()">Fusion Maker</button>
+            <button id="pro" onclick="machineClick(this), main()">Fusion Pro</button>
+            <button id="galvo" onclick="machineClick(this), main()">Galvo</button>
+            <button id="zing" onclick="machineClick(this), main()">Zing</button>
+        </div>
+
+        <div class="materials">
+                                <!-- materials for epilog fusion edge laser -->
+            <h2>Materials</h2>
+            <div>
+                <button id="acrilic" onclick="materialClick(this), main()">Acrilic</button>
+                <button id="glass" onclick="materialClick(this), main()">Glass</button>
+                <button id="leather" onclick="materialClick(this), main()">Leather</button>
+                <button id="marble" onclick="materialClick(this), main()">Marble</button>
+                <button id="plastics" onclick="materialClick(this), main()">Plastics</button>
+                <button id="wood" onclick="materialClick(this), main()">Wood</button>
+
+            </div>
+
+        </div>
+        <div class="para" id="cut">
+            <h2>ჭრის პარამეტრები</h2>
+            
+        </div>
+        <div id="raster" class="para" style="border-right: none;">
+            <h2>გრავირების პარამეტრები</h2>
+           
+            
+        </div>
+    </div>
+    
+
+    
+
+<script src="./epilog.js"></script>
+</body>
+</html>
