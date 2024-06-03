@@ -1,0 +1,115 @@
+.logo{
+    background-image: url('./img/mine.jpg');
+    width: 400px;
+    height: 273px;
+    margin-right: 100px;
+    justify-content: center;
+    align-items: center;
+}
+.sign{
+    background-color: rgb(109, 177, 177);
+    width: 330px;
+    height: 350px;
+    border-radius: 20px;
+}
+#sign-in-form{
+    display: flex;
+    flex-direction: column;
+    width: 330px;
+    justify-content: center;
+    align-items: center;
+}
+#sign-in-form input{
+    width: 250px;
+    height: 15px;
+    padding: 14px 16px;
+    border-radius: 6px;
+    margin-top: 15px;
+}
+#sign-in-form button{
+    margin-top: 15px;
+    width: 285px;
+    height: 45px;
+    border-radius: 6px;
+    background-color: rgb(67, 143, 191);
+}
+#create-acc-btn{
+    width: 200px;
+    height: 50px;
+    background-color: rgb(46, 222, 46);
+    border-radius: 6px;
+    margin-top: 10px;
+}
+#create-acc-btn:hover{
+    background-color: rgb(92, 236, 140);
+}
+#sign-in-form button:hover{
+    background-color: rgb(125, 172, 241);
+}
+.sign-up{
+    width: 430px;
+    height: max-content;
+    padding: 25px;
+    background-color: rgb(249, 249, 249);
+    /* justify-content: center;
+    align-items: center; */
+    margin-left: 200px;
+
+}
+.head{
+    display: flex;
+    flex-direction: row;
+}
+.head button{
+    height: 35px;
+    width: 35px;
+    margin-top: 3px;
+    margin-left: 260px;
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+.head h1{
+    margin-left: 15px;
+}
+.names input{
+    width: 180px;
+    height: 32px;
+    border-radius: 3px;
+    margin: 10px;
+}
+.registration input{
+    width: 390px;
+    height: 32px;
+    border-radius: 3px;
+    margin: 10px;
+}
+#signUp{
+    width: 200px;
+    height: 40px;
+    background-color: #0b9e0b;
+
+}
+.registrationWindow{
+    /* style={{width:'900px', height: '500px', position: 'absolute', justifyContent: 'center', alignItems: 'center', display: props.showSignUp }} */
+    width: 900px;
+    height: max-content;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+#signUp:hover{
+    background-color: #4de34d;
+}
+#email-err{
+    display: none;
+    margin: 0;
+    color: red;
+}
+#password-err{
+    display: none;
+    margin: 2px;
+    color: red;
+}
