@@ -1,0 +1,72 @@
+*{
+    box-sizing: border-box;
+}
+
+.visible{
+    visibility: visible;
+}
+
+.hidden{
+    visibility: hidden;
+}
+
+.oficial-epilog{
+    color: white;
+    justify-content: center;
+    text-align: center;
+    padding: 5px;
+    font-size: 18px;
+    background: linear-gradient(to left, #32a2a2, #165ebc);
+}
+.oficial-epilog a:visited{
+    color: blue;
+}
+
+/* HEADER styles below */
+
+
+.main{
+    display: flex;
+}
+
+.choose{
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 25px;
+}
+
+.machines{
+    justify-content: center;
+    text-align: center;
+    border: 2px solid black;
+}
+
+
+.materials{
+    justify-content: center;
+    text-align: center;
+    border: 2px solid black;
+    border-left: none;
+}
+button{
+    height: 80.5px;
+    display: block;
+    width: 230px;
+    font-size: 35px;
+    cursor: pointer;
+    background-color: white;
+    border-top: 2px solid black;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;  
+}
+button:hover{
+    background-color: #46a0ef;
+    color: #f0f8ff;
+}
+.para{
+    width: 50%;
+    text-align: center;
+    border-right: 1px solid black;
+    line-height: 10px;
+}

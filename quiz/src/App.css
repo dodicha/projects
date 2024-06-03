@@ -1,0 +1,45 @@
+.color:hover{
+    background-color: rgb(158, 182, 172);
+}
+button{
+    width: 100px;
+}
+.correct{
+    background-color: green;
+}
+.inCorrect{
+    background-color: red;
+}
+.center{
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+.catalogDiv{
+        justify-content: center;
+        display: flex;
+        cursor: pointer;
+        gap: 50px;
+        list-style-type: none;
+        font-size: 30px;
+}
+.list{
+    border: 1px solid black;
+    width: 200px;
+    text-align: center;
+    height: 50px;
+    border-radius: 10px;
+}
+.header{
+    text-align: center;
+    font-size: 30px;
+}
+#btn{
+    margin: auto;
+}
+.black {
+    background-color: aqua                                                                                                                                                                         ;
+}
+#isVisible{
+    display: none;
+}

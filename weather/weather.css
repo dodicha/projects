@@ -1,0 +1,123 @@
+body{
+    box-sizing: border-box;
+}
+.mainDiv{
+    width: max-content;
+    margin: 100px auto 0;
+    padding: 30px 30px  ;
+    text-align: center;
+    margin: auto;
+    background: linear-gradient( to bottom right, rgb(150, 213, 72, 0.8), rgb(18, 129, 77, 0.8));
+    border-radius: 5px;
+    position: relative;
+}
+
+.headerDiv input{
+    height: 30px;
+    width: 220px;
+    border-radius: 5px;
+    border:  1px solid grey;
+    padding-left: 15px;
+}
+.headerDiv button{
+    height: 30px;
+    background-color: aliceblue;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.headerDiv{
+    display: flex;
+    gap: 15px;
+}
+
+
+
+h1{
+    font-family: sans-serif;
+    font-size: 25px;
+    margin: 0;
+}
+h2{
+    font-family: sans-serif;
+    font-size: 25px;
+    margin-top: 5px;
+}
+.conditions{
+    display: flex;
+}
+.conditions img{
+    width: 30px;
+}
+#sugesstion{
+    position: absolute;
+    height: 350px;
+    width: 200px;
+    background-color: aliceblue;
+    border-radius: 5px;
+    margin-top: 40px;
+}
+ul{
+    max-height: 350px;
+    overflow-y: auto;
+}
+li{
+    text-align: left;
+    margin-left: -20px;
+    cursor: pointer;
+}
+.icon{
+    cursor: pointer;
+}
+.categories{
+    position: relative;
+    width: 220px;
+    height: 30px;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+}
+.categories p{
+    margin-top: 5px;
+    cursor: pointer;
+}
+#icon{
+    margin-top: 7px;
+    padding-left: 120px;
+}
+.porpuse{
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    width: 220px;
+    line-height: 25px;
+    margin-top: 5px;
+    border-radius: 5px;
+    display: none;
+}
+.porpuse ul li{
+    list-style-type: none;
+}
+
+.weather img{
+    width: 100px;
+}
+#content {
+    justify-content: center;
+    align-items: center;
+  }
+.currentWeather{
+    width: 250px;
+    align-items: center;
+    margin: auto;
+}
+.conditions h3{
+    font-size: 15px;
+}
+#sugestedDate{
+    text-align: center;
+    width: 100%;
+    display: flex;
+    display: none;
+    flex-direction: row;
+}

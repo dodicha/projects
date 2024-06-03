@@ -1,0 +1,118 @@
+.app{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  height: 100vh;
+}
+.result1{
+  display: 'block';
+  position: absolute;
+  padding: 20px;
+  width: 550px;
+  height: 550px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid black;
+  border-radius: 25px;
+}
+.result{
+  display: none;
+}
+#input{
+  margin-top: 15px;
+  width: 250px;
+  height: 30px;
+}
+#submit{
+  height: 35px;
+  margin-left: 10px;
+}
+.colum-element{
+  width: 45px;
+  height: 45px;
+  border:  1px solid black ;
+  margin-top: 10px;
+}
+.colum{
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 15px;
+}
+.letters{
+  border: 1px solid black;
+  width: 30px;
+  height: 45px;
+  margin: 15px 5px 5px;
+  font-weight: 700;
+}
+.keyboard{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+.grey{
+  border: 1px solid black;
+  width: 30px;
+  height: 45px;
+  margin: 15px 5px 5px;
+  font-weight: 700;
+  background-color: gray;
+}
+.green{
+  border: 1px solid black;
+  width: 30px;
+  height: 45px;
+  margin: 15px 5px 5px;
+  font-weight: 700;
+  background-color: green;
+}
+.yellow{
+  border: 1px solid black;
+  width: 30px;
+  height: 45px;
+  margin: 15px 5px 5px;
+  font-weight: 700;
+  background-color:yellow;
+}
+.correct{
+  display: block;
+}
+.inCorrect{
+  display: none;
+}
+.column-green{
+  background-color: green;
+  width: 45px;
+  height: 45px;
+  border:  1px solid black ;
+  margin-top: 10px;
+}
+.column-yellow{
+  background-color: yellow;
+  width: 45px;
+  height: 45px;
+  border:  1px solid black ;
+  margin-top: 10px;
+}
+.column-grey{
+  background-color: grey;
+  width: 45px;
+  height: 45px;
+  border:  1px solid black ;
+  margin-top: 10px;
+}
+.help{
+  display: flex;
+}
+.square{
+  width: 45px;
+  height: 45px;
+  border:  1px solid black;
+  margin-left: 10px;
+}
