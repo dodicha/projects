@@ -13,9 +13,6 @@ function App() {
     }
   }, [count])
 
-  // console.log(users);
-
-
   return (
       <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative'}}>
           <div className='logo'>
