@@ -1,5 +1,4 @@
-import { User } from "./users";
-import { useRef } from "react";
+import { user } from "./users";
 
 function checkemail(string:string){
   const end: string | undefined= string.slice(-10);
@@ -26,22 +25,20 @@ function clearErr(email: HTMLElement | null, password: HTMLElement | null){
   }
 }
 
-    
-
 
 export default function SignUp(props: {
   showSignUp: string,
   count:number,
   setShowSignUp: (string:string)=>void,
   setCount: (string:number)=>void,
-  users:User[],
+  users:user[],
   user: any
-  }  ){
+  }){
 
     const firstname = document.getElementById('firstName') as HTMLInputElement;
     const lastName = document.getElementById('lastName') as HTMLInputElement;
-    const email = document.getElementById('email') as HTMLInputElement;
-    const password = document.getElementById('password') as HTMLInputElement;
+    const email = document.getElementById('sign-up-email') as HTMLInputElement;
+    const password = document.getElementById('sign-up-password') as HTMLInputElement;
     const formInputs = [firstname, lastName, email, password];
 
     const emailErr: HTMLElement | null= document.getElementById('email-err');
@@ -52,7 +49,7 @@ export default function SignUp(props: {
     function handleSignUp(){
         props.setShowSignUp('none');
         props.setCount(props.count + 1);
-        props.users[props.count] = new props.user(firstname.value, lastName.value, email.value, password.value);
+        props.users[props.count] = new props.user(props.count, firstname.value, lastName.value, email.value, password.value);
         props.setShowSignUp('none');
     }
     function handleEmailErr(){  
@@ -65,10 +62,17 @@ export default function SignUp(props: {
         passErr.style.display = 'block';
       }
     }
-    function handleEmptyValues(){
-      formInputs.map((e, index) => {
+    function clearborder(){
+      formInputs.map((e)=>{
         if(e){
-          e?.value === '' ? e.style.border = '2px solid red' : e.style.border = '2px solid black'
+          e.style.border = '2px solid black'
+        }
+      })
+    }
+    function handleEmptyValues(){
+     formInputs.map((e, index) => {
+        if(e){
+          e?.value === '' ? e.style.border = '2px solid red' : e.style.border = '2px solid black';
         }
       })
     }
@@ -101,7 +105,8 @@ export default function SignUp(props: {
                   onClick={()=>{
                     props.setShowSignUp('none');
                     clearValue(email, password, firstname, lastName);
-                    clearErr(emailErr, passErr)
+                    clearErr(emailErr, passErr);
+                    clearborder();
                   }}
                   >&times;</button>
                 </div>
@@ -111,9 +116,9 @@ export default function SignUp(props: {
                   <input id='lastName' type='text' placeholder='Last name'></input>
                 </div>
                 <div className='registration'>
-                  <input id='email' type='text' placeholder='Email'></input>
+                  <input id='sign-up-email' type='text' placeholder='Email'></input>
                   <h5 id="email-err" >Email does not match</h5>
-                  <input id='password' type='password' placeholder='password'></input>
+                  <input id='sign-up-password' type='password' placeholder='password'></input>
                   <h5 id="password-err" >Password must contain at least one uppercase letter, one simbol and one number</h5>
                 </div>
                 <button 
