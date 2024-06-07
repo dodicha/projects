@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import SignIn from './components/SignIn';
-import SignUp from './components/SignUp';
 import { users, user } from './components/users';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Best from './components/Best';
 function App() {
-  const [showSignUp, setShowSignUp] = useState<string>('none')
-  const [count, setCount] = useState<number>(0)
+
+  const [count, setCount] = useState<number>(0);
+  const [userPanel, setUserPanel] = useState<boolean>(false);
 
   useEffect(()=>{
     if(count>0){
@@ -16,24 +18,14 @@ function App() {
   console.log(users);
 
   return (
-
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element = {<SignIn  count={count} setCount={setCount} users={users} userPanel={userPanel} setUserPanel={setUserPanel}/>} />
+          <Route path='/user'element={<Best />} />
+        </Routes>
+      </BrowserRouter>
     
-      <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative'}}>
-          <div className='logo'>
-          </div>
-            <SignIn
-               showSignUp = {showSignUp}
-               setShowSignUp = {setShowSignUp}
-            />
-            <SignUp 
-              count = {count}
-              setCount = {setCount}
-              showSignUp = {showSignUp}
-              setShowSignUp = {setShowSignUp}
-              users = {users}
-              user = {user}
-            />
-      </div>
+  
         
   );
 }
