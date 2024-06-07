@@ -1,5 +1,6 @@
 import { user } from "./users";
 
+
 function checkemail(string:string){
   const end: string | undefined= string.slice(-10);
   return end === '@gmail.com';
@@ -126,6 +127,6 @@ export default function SignUp(props: {
                 onClick={handleSignClick}
                 >Sign Up</button>
             </div>
-          </div>
+        </div>
     )
 }
