@@ -1,8 +1,8 @@
-import { user, users } from "./users";
+import { user, users } from "./types";
 import SignUp from "./SignUp";
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { Navigate } from "react-router-dom";
-
+import { myContext } from "../App";
   function checkUser(typeEmail: HTMLInputElement, typePassword: HTMLInputElement){
     // console.log(typeEmail.value);
     // console.log(typePassword.value);
@@ -14,49 +14,30 @@ import { Navigate } from "react-router-dom";
     return user
   }
 
-export default function SignIn(props: {
-  // showSignUp: string,
-  // setShowSignUp: (string:string)=>void,
-  users : user[],
-  count: number,
-  setCount: (number:number)=>void,
-  userPanel: boolean,
-  setUserPanel: (boolean: boolean)=>void
-} ) {
-  const [showSignUp, setShowSignUp] = useState<string>('none');
 
 
+export default function SignIn() {
+  const  {count, setCount, users, userPanel, setUserPanel, setShowSignUp, showSignUp} = useContext(myContext);
   const email = document.getElementById('sign-in-email') as HTMLInputElement
   const password = document.getElementById('sign-in-password') as HTMLInputElement;
-
-  if(props.userPanel){
-    return <Navigate to='/user'/>
+  if(userPanel){
+    const path = checkUser(email, password)[0].id;
+    return <Navigate to={`/user/${path}`} />
   }
   
-    
-
   function handleCreateClick(){
     setShowSignUp('block')
   }
 
-
-
   function handleSignClick(){
     const res = document.getElementById('res') as HTMLInputElement;
     if(checkUser(email, password).length > 0){
-      // res.textContent = `Firstname: ${checkUser(email, password)[0].firstName}, Lastname: ${checkUser(email, password)[0].lastName}`
-      props.setUserPanel(true);
-
+      setUserPanel(true);
     }else{
       res.textContent = `Email or Password is incorrect!`
     }
-    
   }
 
-
-  // function setCount(string: number): void {
-  //   throw new Error("Function not implemented.");
-  // }
 
   return (
 
@@ -86,12 +67,6 @@ export default function SignIn(props: {
           >Create new Account</button>
         </div>
         <SignUp 
-          count = {props.count}
-          setCount = {props.setCount}
-          showSignUp = {showSignUp}
-          setShowSignUp = {setShowSignUp}
-          users = {users}
-          user = {user}
         />
       </div>
       

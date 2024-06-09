@@ -1,5 +1,6 @@
-import { user } from "./users";
-
+import { user } from "./types";
+import { myContext } from "../App";
+import { useContext } from "react"
 
 function checkemail(string:string){
   const end: string | undefined= string.slice(-10);
@@ -27,14 +28,9 @@ function clearErr(email: HTMLElement | null, password: HTMLElement | null){
 }
 
 
-export default function SignUp(props: {
-  showSignUp: string,
-  count:number,
-  setShowSignUp: (string:string)=>void,
-  setCount: (string:number)=>void,
-  users:user[],
-  user: any
-  }){
+export default function SignUp(){
+
+    const  {count, setCount, users, userPanel, setUserPanel, setShowSignUp, showSignUp} = useContext(myContext);
 
     const firstname = document.getElementById('firstName') as HTMLInputElement;
     const lastName = document.getElementById('lastName') as HTMLInputElement;
@@ -48,10 +44,10 @@ export default function SignUp(props: {
 
 
     function handleSignUp(){
-        props.setShowSignUp('none');
-        props.setCount(props.count + 1);
-        props.users[props.count] = new props.user(props.count, firstname.value, lastName.value, email.value, password.value);
-        props.setShowSignUp('none');
+        setShowSignUp('none');
+        setCount(count + 1);
+        users[count] = new user(count, firstname.value, lastName.value, email.value, password.value);
+        setShowSignUp('none');
     }
     function handleEmailErr(){  
         if(emailErr){
@@ -98,13 +94,13 @@ export default function SignUp(props: {
   }
 
     return (
-        <div className="registrationWindow" style={{display : props.showSignUp}}> 
+        <div className="registrationWindow" style={{display : showSignUp}}> 
             <div className='sign-up'>
                 <div className='head'>
                   <h1>Sign Up</h1>
                   <button 
                   onClick={()=>{
-                    props.setShowSignUp('none');
+                    setShowSignUp('none');
                     clearValue(email, password, firstname, lastName);
                     clearErr(emailErr, passErr);
                     clearborder();
