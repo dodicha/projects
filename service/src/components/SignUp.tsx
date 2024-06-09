@@ -30,7 +30,7 @@ function clearErr(email: HTMLElement | null, password: HTMLElement | null){
 
 export default function SignUp(){
 
-    const  {count, setCount, users, userPanel, setUserPanel, setShowSignUp, showSignUp} = useContext(myContext);
+    const  {count, setCount, users, setShowSignUp, showSignUp, setUsersArray} = useContext(myContext);
 
     const firstname = document.getElementById('firstName') as HTMLInputElement;
     const lastName = document.getElementById('lastName') as HTMLInputElement;
@@ -48,6 +48,7 @@ export default function SignUp(){
         setCount(count + 1);
         users[count] = new user(count, firstname.value, lastName.value, email.value, password.value);
         setShowSignUp('none');
+        setUsersArray(users);
     }
     function handleEmailErr(){  
         if(emailErr){
