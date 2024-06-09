@@ -4,9 +4,9 @@ import { useEffect, useState, useContext } from 'react';
 import { Navigate } from "react-router-dom";
 import { myContext } from "../App";
   function checkUser(typeEmail: HTMLInputElement, typePassword: HTMLInputElement){
-    // console.log(typeEmail.value);
-    // console.log(typePassword.value);
-    const user = users.filter((e)=>{
+    let array = localStorage.getItem('users') as string
+    const  lastArray: user[] = JSON.parse(array);
+    const user = lastArray.filter((e)=>{
       if(e.email === typeEmail.value && e.password === typePassword.value){
         return e
       }
@@ -17,7 +17,7 @@ import { myContext } from "../App";
 
 
 export default function SignIn() {
-  const  {count, setCount, users, userPanel, setUserPanel, setShowSignUp, showSignUp} = useContext(myContext);
+  const  { userPanel, setUserPanel, setShowSignUp } = useContext(myContext);
   const email = document.getElementById('sign-in-email') as HTMLInputElement
   const password = document.getElementById('sign-in-password') as HTMLInputElement;
   if(userPanel){

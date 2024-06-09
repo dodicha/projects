@@ -6,6 +6,8 @@ export interface ContextProps {
     setUserPanel: React.Dispatch<React.SetStateAction<boolean>>;
     setShowSignUp: React.Dispatch<React.SetStateAction<string>>;
     showSignUp: string
+    setUsersArray : React.Dispatch<React.SetStateAction<user[]>>;
+    usersArray: user[]
   }
 
 export class user {

@@ -1,13 +1,10 @@
 import React, { useEffect, useState, createContext } from 'react';
 import './App.css';
 import SignIn from './components/SignIn';
-import { users, ContextProps } from './components/types';
+import { users, ContextProps, user } from './components/types';
 import { Route, RouterProvider } from 'react-router-dom';
 import { createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import UserPage from './components/UserPage';
-
-
-
 
 export const myContext = createContext<ContextProps>({
   users : [],
@@ -16,15 +13,22 @@ export const myContext = createContext<ContextProps>({
   userPanel: false,
   setUserPanel: ()=>{},
   setShowSignUp: ()=>{},
-  showSignUp: 'none'
-
+  showSignUp: 'none',
+  setUsersArray: ()=>{},
+  usersArray: []
 });
+
+
+
 function App() {
 
   const [count, setCount] = useState<number>(0);
   const [userPanel, setUserPanel] = useState<boolean>(false);
   const [showSignUp, setShowSignUp] = useState<string>('none');
-
+  const [usersArray, setUsersArray] = useState<user[]>(()=>{
+    const storedUsers = localStorage.getItem('users');
+    return storedUsers ? JSON.parse(storedUsers) : [];
+  });
 
   const value = {
     count: count,
@@ -33,17 +37,22 @@ function App() {
     userPanel: userPanel,
     setUserPanel: setUserPanel,
     setShowSignUp: setShowSignUp,
-    showSignUp: showSignUp
+    showSignUp: showSignUp,
+    setUsersArray: setUsersArray,
+    usersArray: usersArray
   }
+
+  
 
   useEffect(()=>{
     if(count>0){
-      alert('Account created successfully')
+      localStorage.setItem('users', JSON.stringify(usersArray));
+      alert('Account created successfully');
+      let usr = localStorage.getItem('users') as string
+      usr = JSON.parse(usr);
+      console.log('test render',  usr);
     }
   }, [count])
-
-  console.log(users);
-
 
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -56,14 +65,12 @@ function App() {
     )
   )
 
-
   return (
- 
     <myContext.Provider value={value}>
       <RouterProvider router={router}/>
     </myContext.Provider>
-        
   );
+
 }
 
 export default App;
