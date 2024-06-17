@@ -3,11 +3,13 @@ export class order  {
     inv: number = 0;
     endDate: string = '';
     discription: string = '';
+    status:string = 'awaiting'
 
-    constructor(company: string, inv:  number, endDate: string, discription: string){
+    constructor(company: string, inv:  number, endDate: string, discription: string, status: string){
         this.company = company;
         this.inv = inv;
         this.endDate = endDate;
-        this.discription = discription
+        this.discription = discription;
+        this.status = status
     }
 };

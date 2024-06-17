@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react"
-import { MainContext } from "./MainContext";
+import { MainContext } from "../MainContext";
 import { styled } from "styled-components";
-import { order } from "./data";
+import { order } from "../data";
 
 
 const Add = styled.button`
@@ -57,16 +57,46 @@ const EndDate = styled.input`
 
 
 const Awaiting = styled.div`
-    
+    width: 30%;
+    height: max-content;
+    border-radius: 15px;
+    border: 3px solid red;
 `;
 
-const OnGoing = styled.div`
-    
+const AwaitingHeader = styled.h3`
+    color: red;
+    text-align: center;
+`
+const Awaitinglist = styled.div`
+    /* text-align: center; */
+    margin: 5px;
+    border: 1px solid black;
+    height: 30px;
+    padding: 5px;
+    border-radius: 10px;
 `
 
+
+const OnGoing = styled.div`
+    width: 30%;
+    height: max-content;
+    border-radius: 15px;
+    border: 3px solid #d2ed09;
+`
+const OngoingHeader = styled.h3`
+    color: #d2ed09;
+    text-align: center;
+`
 const Done = styled.div`
-    
+    width: 30%;
+    height: max-content;
+    border-radius: 15px;
+    border: 3px solid green;
 `;
+const DoneHeader = styled.h3`
+    color: green;
+    text-align: center;
+`
 const Save = styled.button`
     // on save button setOrderCount(orderCount + 1 );
 `
@@ -149,19 +179,40 @@ export default function ManagerOfProduction (){
         const inv = document.getElementById('inv') as HTMLInputElement
         const endDate = document.getElementById('endDate') as HTMLInputElement
         const discription = document.getElementById('discription') as HTMLInputElement
-        const newOrder = new order(company.value, +inv.value, endDate.value, discription.value);
+        const newOrder = new order(company.value, +inv.value, endDate.value, discription.value, 'awaiting');
         setOrderData([...orderData, newOrder]);
         setWindowOn(!windowOn)
         setOrderCount(orderCount + 1);
     }
 
+    function AwaitingOrders (){
+        const AwaitingOrders = orderData.map((e, index)=>{
+            if(e.status === 'awaiting'){
+                return <Awaitinglist key={index}>{e.company} INV: {e.inv}</Awaitinglist>
+            }
+        })
+        console.log(orderData)
+
+
+        return (
+            <div >
+                {AwaitingOrders}
+            </div>
+        )
+    }
+
+
+
+
+
     return (
         <div style={{position: 'relative', display: 'flex', width: '100%'}}>
-           <Add 
-           onClick={addOrder}
-           >
-            New Order +
-           </Add>
+                <Add 
+                    onClick={addOrder}
+                >
+                New Order +
+                </Add>
+           
 
             { windowOn ? 
             
@@ -171,7 +222,7 @@ export default function ManagerOfProduction (){
                 {/* <GetMachinebuttons/> */}
                 <GetMaterialButtons />
                 <EndDate id="endDate" type="date" placeholder="start date"/>
-                <Discriptio id="discription" />
+                <Discriptio id="discription" placeholder="Order Description"/>
                 <SaveButton 
                 onClick={saveOrder}
                 >
@@ -179,6 +230,25 @@ export default function ManagerOfProduction (){
                 </SaveButton>
            </AddWindow>  : null}
 
+            <div style={{width: '100%', marginTop: '70px', marginLeft: '-170px', display: 'flex'}}>
+                <Awaiting>
+                    <AwaitingHeader>
+                        Awaiting
+                    </AwaitingHeader>
+                    <AwaitingOrders/>
+                </Awaiting>
+                <OnGoing>
+                    <OngoingHeader>
+                        On Going
+                    </OngoingHeader>
+                </OnGoing>
+                <Done>
+                    <DoneHeader>
+                        Done
+                    </DoneHeader>
+                </Done>
+            </div>
+                
 
            
 
