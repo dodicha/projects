@@ -5,9 +5,9 @@ import { createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
 import HomePage from './components/HomePage';
 import Test from './components/test';
 import { MainProvider } from './components/MainContext';
-import ManagerOfProduction from './components/ManagerOfProduction';
-import HeadOfProduction from './components/HeadOfProduction';
-import ProductionOperator from './components/ProductionOperator';
+import ManagerOfProduction from './components/ManagerOfProduction/ManagerOfProduction';
+import HeadOfProduction from './components/HeadOfProduction/HeadOfProduction';
+import ProductionOperator from './components/ProductionOperator/ProductionOperator';
 
 
 const router = createBrowserRouter(
