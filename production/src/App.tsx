@@ -5,21 +5,22 @@ import { createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
 import HomePage from './components/HomePage';
 import Test from './components/test';
 import { MainProvider } from './components/MainContext';
-
-
-const position: string[] = ['Manager of production', 'Head of production', 'Production operator'];
+import ManagerOfProduction from './components/ManagerOfProduction';
+import HeadOfProduction from './components/HeadOfProduction';
+import ProductionOperator from './components/ProductionOperator';
 
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
           <Route path='/' element={<HomePage/>}/>
+          <Route path='/Manager-of-production' element={<ManagerOfProduction/>}/>
+          <Route path='/Head-of-production' element={<HeadOfProduction/>}/>
+          <Route path='/Production-operator' element={<ProductionOperator/>}/>
           <Route path='/test' element={<Test />}/>
     </Route>
-    
   )
-)
-
+);
 
 function App() {
   
@@ -27,7 +28,6 @@ function App() {
     <MainProvider>
       <RouterProvider router={router}/>
     </MainProvider>
-      
   )
 }
 

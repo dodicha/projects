@@ -5,18 +5,21 @@ import { MainContext } from './MainContext';
 export default function Test(){
     const { count, setCount } = useContext(MainContext);
 
-    // const firstRender = useRef(true);
+    const firstRender = useRef(true);
 
-   
+   useEffect(()=>{
+    if(firstRender.current){
+        localStorage.setItem('count', `${count}`);
+        setCount(count + 1);
+        firstRender.current = false
+    }
+   }, [])
 
 
 
     function increment (){
-        
         localStorage.setItem('count', `${count}`)
         setCount(Number(localStorage.getItem('count')) + 1);
-        console.log('localStorage', localStorage.getItem('count'));
-        console.log('Count: ',{count})
     }
 
     return(
