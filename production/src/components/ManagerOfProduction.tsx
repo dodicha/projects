@@ -18,14 +18,13 @@ const Add = styled.button`
 `;
 
 const AddWindow = styled.div`
-    display: none;
     width: 40%;
     height: max-content;
     background-color: aqua;
     position: absolute;
     margin-left: 30%;
     margin-top: 70px;
-    /* padding-left: %; */
+    /* padding: auto; */
 `
 const Company = styled.input`
     width: 200px;
@@ -60,7 +59,6 @@ const EndDate = styled.input`
 const Awaiting = styled.div`
     
 `;
-
 
 const OnGoing = styled.div`
     
@@ -99,21 +97,31 @@ export default function ManagerOfProduction (){
         const currentOrdercount = localStorage.getItem('ordecount')
         return currentOrdercount ? Number(currentOrdercount) : 0
     });
-    
+    const [orderData, setOrderData] = useState<order[]>(()=>{
+        const storedData = localStorage.getItem('orderData');
+        return storedData ? JSON.parse(storedData) : []
+    })
+    const [windowOn, setWindowOn] = useState(false)
 
-    
+    useEffect(()=>{
+        localStorage.setItem('orderData', JSON.stringify(orderData));
+        console.log(orderData)
+        // localStorage.clear();
+    }, [orderData])
 
-    function GetMachinebuttons(){
-        const machines: string[] = ['machine1', 'machine2', 'machine3'];
-        const allMachines = machines.map((e, index)=>{
-            return <Machines key={index}>{e}</Machines>
-        })
-        return (
-            <div>
-                {allMachines}
-            </div>
-        )
-    };
+
+
+    // function GetMachinebuttons(){
+    //     const machines: string[] = ['machine1', 'machine2', 'machine3'];
+    //     const allMachines = machines.map((e, index)=>{
+    //         return <Machines key={index}>{e}</Machines>
+    //     })
+    //     return (
+    //         <div>
+    //             {allMachines}
+    //         </div>
+    //     )
+    // };
     function GetMaterialButtons(){
         const materials: string[] = ["material1", 'material2', 'material3'];
         const allMaterials = materials.map((e, index)=>{
@@ -133,17 +141,18 @@ export default function ManagerOfProduction (){
     }
 
     function  addOrder(){
-        const addWindow = document.getElementById('addWindow') as HTMLElement
-        addWindow.style.display = 'block';
-        
+        setWindowOn(!windowOn)
     };
+
     function saveOrder(){
         const company = document.getElementById('company') as HTMLInputElement
         const inv = document.getElementById('inv') as HTMLInputElement
         const endDate = document.getElementById('endDate') as HTMLInputElement
         const discription = document.getElementById('discription') as HTMLInputElement
-        console.log(company.value, inv.value, endDate.value, discription.value);
-        const newOrder = new order(company.value, +inv.value, endDate.value, discription.value)
+        const newOrder = new order(company.value, +inv.value, endDate.value, discription.value);
+        setOrderData([...orderData, newOrder]);
+        setWindowOn(!windowOn)
+        setOrderCount(orderCount + 1);
     }
 
     return (
@@ -153,7 +162,10 @@ export default function ManagerOfProduction (){
            >
             New Order +
            </Add>
-           <AddWindow id="addWindow">
+
+            { windowOn ? 
+            
+            <AddWindow id="addWindow">
                 <Company id="company" placeholder="Company/Person"/>
                 <InvNumber id="inv" placeholder="INV N:" type="number"/>
                 {/* <GetMachinebuttons/> */}
@@ -165,7 +177,14 @@ export default function ManagerOfProduction (){
                 >
                     SAVE
                 </SaveButton>
-           </AddWindow>
+           </AddWindow>  : null}
+
+
+           
+
+
+
+
         </div>
     )
 }
