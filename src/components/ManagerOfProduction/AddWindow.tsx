@@ -10,7 +10,7 @@ const Window = styled.div`
     background-color: aqua;
     position: absolute;
     margin-left: 30%;
-    margin-top: 70px;
+    margin-top: 71px;
     /* padding: auto; */
 `
 const Company = styled.input`
